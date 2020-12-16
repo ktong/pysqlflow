@@ -37,7 +37,7 @@ class CompoundMessage:
             if isinstance(r[0], Rows):
                 all_string = '\n'.join([all_string, r[0].__repr__()])
             else:
-                all_string = '\n'.join([all_string, r[0].__repr__()])
+                all_string = '\n'.join([all_string, r[0]."<p>%s</p>" % (r[0].__str__().replace("\n", "<br>"))])
         return all_string
 
     def _repr_html_(self):
