@@ -31,7 +31,7 @@ client.run('SELECT ... TRAIN ...')
 ## Service Protocol
 
 `sqlflow.Client` uses grpc to contact the `sqlflowserver`. The service protocol
-is defined [here](sqlfow/proto/sqlflow.proto)
+is defined [here](/proto/sqlfow/proto/sqlflow.proto)
 
 ## Implementaion
 
