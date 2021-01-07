@@ -3,9 +3,13 @@
 ## Overview
 
 SQLFlow Client connects [sqlflowserver](https://github.com/sql-machine-learning/sqlflowserver).
-It only one method `Run` which takes a SQL statement and returns a `RowSet` object.
+It only one method `Execute` which takes a SQL statement and returns a `CompoundMessage` object.
 
 ## Example
+
+```
+export SQLFLOW_DATASOURCE=hive://localhost:10000/
+```
 
 ```python
 import sqlflow
@@ -13,13 +17,11 @@ import sqlflow
 client = sqlflow.Client(server_url='localhost:50051')
 
 # Query SQL
-rowset = client.run('SELECT ... FROM ...')
-for row in rowset:
-    print(row) # [1, 1]
+compound_message = client.execute('SELECT ... FROM ...')
 
 # Execution SQL, prints
 # Query OK, ... row affected (... sec)
-client.run('DELETE FROM ... WHERE ...')
+client.execute('DELETE FROM ... WHERE ...')
 
 # ML SQL, prints
 # epoch = 0, loss = ...
